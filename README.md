@@ -1,6 +1,16 @@
 # distance-calc
 A JS module for calculating several distances between two (n-dimensional) points
-[![Build Status](https://travis-ci.org/pataiadam/distance-calc.svg?branch=master)](https://travis-ci.org/pataiadam/distance-calc)
+<p align="center">
+    <a href="https://npmjs.org/package/distance-calc">
+        <img src="https://badge.fury.io/js/distance-calc.svg"
+             alt="npm version">
+    </a>
+    <a href="https://travis-ci.org/badges/distance-calc">
+        <img src="https://travis-ci.org/pataiadam/distance-calc.svg?branch=master"
+             alt="build status">
+    </a>
+</p>
+
 [![NPM](https://nodei.co/npm/distance-calc.png)](https://npmjs.org/package/distance-calc)
 
 ## Installation
