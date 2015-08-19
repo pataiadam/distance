@@ -1,9 +1,13 @@
 # distance-calc
 A JS module for calculating several distances between two (n-dimensional) points
 
+[![NPM](https://nodei.co/npm/distance-calc.png)](https://npmjs.org/package/distance-calc)
+
 ## Installation
 
+```
   npm install distance-calc --save
+```
 
 ## Usage
 
