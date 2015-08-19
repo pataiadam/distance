@@ -1,6 +1,6 @@
 # distance-calc
 A JS module for calculating several distances between two (n-dimensional) points
-<p align="center">
+<p>
     <a href="https://npmjs.org/package/distance-calc">
         <img src="https://badge.fury.io/js/distance-calc.svg"
              alt="npm version">
