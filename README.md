@@ -1,6 +1,6 @@
 # distance-calc
 A JS module for calculating several distances between two (n-dimensional) points
-
+[![Build Status](https://travis-ci.org/pataiadam/distance-calc.svg?branch=master)](https://travis-ci.org/pataiadam/distance-calc)
 [![NPM](https://nodei.co/npm/distance-calc.png)](https://npmjs.org/package/distance-calc)
 
 ## Installation
@@ -39,9 +39,9 @@ A JS module for calculating several distances between two (n-dimensional) points
    isEqual = d.norm(vector1, a2dVector) == d.norm(vector1, a4dVector); //true
 ```
 ## Tests
-
+```
   npm test
-
+```
 ## Release History
 
 * 0.1.0 Initial release
