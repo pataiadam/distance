@@ -18,11 +18,7 @@ module.exports = {
             return max;
         }
         if(a.length!== b.length){
-            if(a.length<b.length){
-                a = a.concat(Array.apply(null, Array(b.length- a.length)).map(Number.prototype.valueOf,0));
-            }else{
-                b = b.concat(Array.apply(null, Array(a.length- b.length)).map(Number.prototype.valueOf,0));
-            }
+            return Number.NaN;
         }
         var sum = 0;
         for(var n = a.length; n--; ) {

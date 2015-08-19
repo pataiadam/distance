@@ -42,16 +42,11 @@ A JS module for calculating several distances between two (n-dimensional) points
   //p-norm dist. between two points
   d.norm(vector1, vector2, 42);
 
-  //different dimensional
+  //returns NaN if dimensions are different
   var a2dVector = [5, 5];
-  var a4dVector = [5, 5, 0, 0];
-  var isEqual = d.norm(a2dVector, vector1) == d.norm(a4dVector, vector1); //true
-   isEqual = d.norm(vector1, a2dVector) == d.norm(vector1, a4dVector); //true
+  d.norm(a2dVector, vector1);
 ```
 ## Tests
 ```
   npm test
 ```
-## Release History
-
-* 0.1.0 Initial release

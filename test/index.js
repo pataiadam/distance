@@ -25,8 +25,7 @@ describe('#norm', function() {
         norm(vector2, 'inf').should.equal(1);
     });
 
-    it('should "fill out" the shorter vector with zeros', function() {
-        norm(vector2, vector3).should.equal(Math.sqrt(2));
-        norm(vector3, vector2).should.equal(Math.sqrt(2));
+    it('should returns NaN', function() {
+        isNaN(norm(vector2, vector3)).should.equal(true);
     });
 });
