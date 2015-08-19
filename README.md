@@ -6,6 +6,8 @@ A JS module for calculating several distances between two (n-dimensional) points
   npm install distance-calc --save
 
 ## Usage
+
+### p-norm
 ```
   var d = require('distance-calc');
   var vector1 = [1, 2, 3, 4];
@@ -26,6 +28,11 @@ A JS module for calculating several distances between two (n-dimensional) points
   //p-norm dist. between two points
   d.norm(vector1, vector2, 42);
 
+  //different dimensional
+  var a2dVector = [5, 5];
+  var a4dVector = [5, 5, 0, 0];
+  var isEqual = d.norm(a2dVector, vector1) == d.norm(a4dVector, vector1); //true
+   isEqual = d.norm(vector1, a2dVector) == d.norm(vector1, a4dVector); //true
 ```
 ## Tests
 

@@ -19,15 +19,15 @@ module.exports = {
         }
         if(a.length!== b.length){
             if(a.length<b.length){
-                a.concat(Array.apply(null, Array(b-a)).map(Number.prototype.valueOf,0));
+                a = a.concat(Array.apply(null, Array(b.length- a.length)).map(Number.prototype.valueOf,0));
             }else{
-                b.concat(Array.apply(null, Array(a-b)).map(Number.prototype.valueOf,0));
+                b = b.concat(Array.apply(null, Array(a.length- b.length)).map(Number.prototype.valueOf,0));
             }
         }
         var sum = 0;
-        for(var n = a.length; n--; )
-            sum += Math.pow(Math.abs(a[n]-b[n]), p);
-
+        for(var n = a.length; n--; ) {
+            sum += Math.pow(Math.abs(a[n] - b[n]), p);
+        }
         return Math.pow(sum, 1/p);
     }
 };

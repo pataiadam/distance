@@ -5,6 +5,7 @@ var should = require('chai').should(),
 describe('#norm', function() {
     var vector1 = [0, 0];
     var vector2 = [1, 1];
+    var vector3 = [0, 0, 0, 0];
     it('should return correct euclidean distance', function() {
         norm(vector1, vector2).should.equal(Math.sqrt(2));
         norm(vector1, vector2, 2).should.equal(Math.sqrt(2));
@@ -22,5 +23,10 @@ describe('#norm', function() {
         norm(vector1, vector2, 'inf').should.equal(1)
         norm(vector2, Number.POSITIVE_INFINITY).should.equal(1);
         norm(vector2, 'inf').should.equal(1);
+    });
+
+    it('should "fill out" the shorter vector with zeros', function() {
+        norm(vector2, vector3).should.equal(Math.sqrt(2));
+        norm(vector3, vector2).should.equal(Math.sqrt(2));
     });
 });
