@@ -53,6 +53,12 @@ A JS module for calculating several distances between two (n-dimensional) points
 
   d.norm(point2D, vector1); // returns NaN if dimensions are different
   d.norm(vector1, 1/2); // returns NaN if p<1
+
+  //complex vectors - e.g. complex 2D vector is [ a = 3 + 4i, b = 0 - 2i ]
+  var modA = norm([3,4]);
+  var modB = norm([0,-2]);
+  d.norm([modA, modB], 1) // 7
+  d.norm([modA, modB], 'inf') // 5
 ```
 
 ### hamming
