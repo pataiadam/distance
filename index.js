@@ -25,5 +25,25 @@ module.exports = {
             sum += Math.pow(Math.abs(a[n] - b[n]), p);
         }
         return Math.pow(sum, 1/p);
+    },
+
+    hamming: function(a, b){
+        if(typeof a !== typeof b){
+            return Number.NaN;
+        }
+        if(typeof a === 'string'){
+            a = a.split('');
+            b = b.split('');
+        }
+        if(!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length){
+            return Number.NaN;
+        }
+        var d = 0;
+        for(var n = a.length; n--; ) {
+            if(a[n]!==b[n]){
+                d++;
+            }
+        }
+        return d;
     }
 };
