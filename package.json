@@ -1,6 +1,6 @@
 {
   "name": "distance-calc",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A JS module for calculating several distances between two (n-dimensional) points",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,11 @@
     "absolute",
     "norm",
     "p-norm",
-    "n-dimensional"
+    "n-dimensional",
+    "hamming",
+    "string",
+    "array",
+    "vector"
   ],
   "author": "Adam Patai <pataiadam@gmail.com> (https://github.com/pataiadam)",
   "license": "MIT",

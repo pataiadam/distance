@@ -54,6 +54,33 @@ A JS module for calculating several distances between two (n-dimensional) points
   d.norm(point2D, vector1); // returns NaN if dimensions are different
   d.norm(vector1, 1/2); // returns NaN if p<1
 ```
+
+### hamming
+`d.hamming(param1, param2)`
+
+#### Arguments
+
+1. `required` *param1* (Array | String)
+1. `required` *param2* (Array | String)
+
+#### Examples
+```
+  var array1 = [1, 2, 3, 4];
+  var array2 = [1, 1, 1, 1];
+  var string1 = 'abcd';
+  var string2 = 'aaaa';
+
+  d.hamming(array1, array1); // 0
+  d.hamming(array1, array2); // 3
+
+  d.hamming(string1, string1); // 0
+  d.hamming(string1, string2); // 3
+
+  d.hamming(array1, string1); // NaN - different types
+  d.hamming(array1, [1,2]); // NaN - different size
+  d.hamming(string1, 'ab'); // NaN - different size
+  d.hamming(123, 123); // NaN - invalid type
+```
 ## Tests
 ```
   npm test
