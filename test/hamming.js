@@ -1,67 +1,40 @@
 var should = require('chai').should(),
     d = require('../index'),
-    norm = d.norm;
-
-describe('#norm', function() {
-    var vector1 = [0, 0];
-    var vector2 = [1, 1];
-    var vector3 = [0, 0, 0, 0];
-    it('should return correct euclidean distance', function() {
-        norm(vector1, vector2).should.equal(Math.sqrt(2));
-        norm(vector1, vector2, 2).should.equal(Math.sqrt(2));
-        norm(vector2).should.equal(Math.sqrt(2));
-        norm(vector2, 2).should.equal(Math.sqrt(2));
-    });
-
-    it('should return 1-norm (Taxicab norm or Manhattan norm)', function() {
-        norm(vector1, vector2, 1).should.equal(2);
-        norm(vector2, 1).should.equal(2);
-    });
-
-    it('should return inf-norm (Maximum norm)', function() {
-        norm(vector1, vector2, Number.POSITIVE_INFINITY).should.equal(1);
-        norm(vector1, vector2, 'inf').should.equal(1)
-        norm(vector2, Number.POSITIVE_INFINITY).should.equal(1);
-        norm(vector2, 'inf').should.equal(1);
-    });
-
-    it('should returns NaN (different size of vectors)', function() {
-        isNaN(norm(vector2, vector3)).should.equal(true);
-    });
-
-    it('should returns NaN (p < 1)', function() {
-        isNaN(norm(vector2, 1/2)).should.equal(true);
-    });
-});
+    hamming = d.hamming;
 
 describe('#hamming', function() {
-    var vector1 = [0, 0];
-    var vector2 = [1, 1];
-    var vector3 = [0, 0, 0, 0];
-    it('should return correct euclidean distance', function() {
-        norm(vector1, vector2).should.equal(Math.sqrt(2));
-        norm(vector1, vector2, 2).should.equal(Math.sqrt(2));
-        norm(vector2).should.equal(Math.sqrt(2));
-        norm(vector2, 2).should.equal(Math.sqrt(2));
+    var array1 = [0,1,2,3,4,5];
+    var array2 = [1,0,2,3,4,5];
+    var array3 = [0,1,2,3,4,5,6];
+    var string1 = '012345';
+    var string2 = '102345';
+    var string3 = 'abcdefg';
+
+    it('should return correct hamming distance (array)', function() {
+        hamming(array1, array2).should.equal(2);
+        hamming(array1, array1).should.equal(0);
     });
 
-    it('should return 1-norm (Taxicab norm or Manhattan norm)', function() {
-        norm(vector1, vector2, 1).should.equal(2);
-        norm(vector2, 1).should.equal(2);
+    it('should return correct hamming distance (string)', function() {
+        hamming(string1, string2).should.equal(2);
+        hamming(string1, string1).should.equal(0);
+        hamming(string3, string3).should.equal(0);
     });
 
-    it('should return inf-norm (Maximum norm)', function() {
-        norm(vector1, vector2, Number.POSITIVE_INFINITY).should.equal(1);
-        norm(vector1, vector2, 'inf').should.equal(1)
-        norm(vector2, Number.POSITIVE_INFINITY).should.equal(1);
-        norm(vector2, 'inf').should.equal(1);
+    it('should return NaN (diff. array length)', function() {
+        isNaN(hamming(array1, array3)).should.equal(true);
     });
 
-    it('should returns NaN (different size of vectors)', function() {
-        isNaN(norm(vector2, vector3)).should.equal(true);
+    it('should return NaN (diff. string length)', function() {
+        isNaN(hamming(string1, string3)).should.equal(true);
     });
 
-    it('should returns NaN (p < 1)', function() {
-        isNaN(norm(vector2, 1/2)).should.equal(true);
+    it('should return NaN (invalid type)', function() {
+        isNaN(hamming(213, 213)).should.equal(true);
     });
+
+    it('should return NaN (different types)', function() {
+        isNaN(hamming(array1, string1)).should.equal(true);
+    });
+
 });
