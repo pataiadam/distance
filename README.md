@@ -21,30 +21,38 @@ A JS module for calculating several distances between two (n-dimensional) points
 
 ## Usage
 
-### p-norm
 ```
   var d = require('distance-calc');
-  var vector1 = [1, 2, 3, 4];
-  var vector2 = [3, 2, 1, 0];
+```
 
-  // to get Euclidean length or size of vectors
-  d.norm(vector1);
-  d.norm(vector1, 2);
+### p-norm
+`d.norm(vector1 [ [, vector2] || [, p=2] ])`
 
-  //p-norm
-  d.norm(vector1, 42);
-  d.norm(vector1, Number.POSITIVE_INFINITY);
-  d.norm(vector1, 'inf');
+#### Arguments
 
-  //Euclidean distance between two points
-  d.norm(vector1, vector2);
+1. `required` *vector1* (Array)
+2. *vector2* (Array): default is the null vector ( [0, 0, 0, ...] )
+3. *p* (number): the number of norm (p >= 1) (default 2)
 
-  //p-norm dist. between two points
-  d.norm(vector1, vector2, 42);
+#### Examples
+```
+  var vector1 = [2, 2, 2, 2];
+  var vector2 = [3, 3, 3, 3];
+  var point2D = [5, 5];
 
-  //returns NaN if dimensions are different
-  var a2dVector = [5, 5];
-  d.norm(a2dVector, vector1);
+  d.norm(vector1); // 4 - Euclidean distance/length
+  d.norm(vector1, 2); // 4 - Euclidean distance/length
+
+  d.norm(vector1, 1); // 8 - Manhattan, Taxicab distance/length
+  d.norm(vector1, Number.POSITIVE_INFINITY); // 2 -  Maximum, Uniform norm
+  d.norm(vector1, 'inf'); // 2 -  Maximum, Uniform norm
+
+  d.norm(vector1, vector2); // 4 - Euclidean distance
+  d.norm(vector1, vector2, 2); // 4 - Euclidean distance
+  d.norm(vector1, vector2, 'inf'); // 2 - Maximum, Uniform norm
+
+  d.norm(point2D, vector1); // returns NaN if dimensions are different
+  d.norm(vector1, 1/2); // returns NaN if p<1
 ```
 ## Tests
 ```
