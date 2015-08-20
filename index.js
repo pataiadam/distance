@@ -17,7 +17,7 @@ module.exports = {
             }
             return max;
         }
-        if(a.length!== b.length){
+        if(a.length !== b.length || p < 1){
             return Number.NaN;
         }
         var sum = 0;

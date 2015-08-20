@@ -25,7 +25,11 @@ describe('#norm', function() {
         norm(vector2, 'inf').should.equal(1);
     });
 
-    it('should returns NaN', function() {
+    it('should returns NaN (different size of vectors)', function() {
         isNaN(norm(vector2, vector3)).should.equal(true);
+    });
+
+    it('should returns NaN (p < 1)', function() {
+        isNaN(norm(vector2, 1/2)).should.equal(true);
     });
 });
